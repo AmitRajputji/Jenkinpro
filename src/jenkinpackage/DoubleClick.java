@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 public class DoubleClick {
 
-	WebDriver wd;
+	WebDriver wd;      //instance variable
 	String url = "http://demo.guru99.com/test/simple_context_menu.html";
 	String actualTitle = "You double clicked me.. Thank You..";
 

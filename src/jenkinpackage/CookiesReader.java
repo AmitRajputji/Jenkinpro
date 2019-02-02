@@ -8,14 +8,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 
 public class CookiesReader {
 
 	public static void main(String[] args) {
 
 		String url = "http://demo.guru99.com/test/cookie/selenium_aut.php";
-		System.setProperty("webdriver.chrome.driver", "D:\\FreshSeleniumSetup\\chromedriver_win32\\chromedriver.exe");
-		WebDriver wd = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver", "D:\\FreshSeleniumSetup\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.edge.driver", "D:\\FreshSeleniumSetup\\chromedriver_win32\\MicrosoftWebDriver.exe");
+//		WebDriver wd = new ChromeDriver();
+		WebDriver wd = new EdgeDriver();
 		wd.manage().window().maximize();
 //		wd.manage().deleteAllCookies();
 		wd.get(url);
@@ -37,7 +40,7 @@ public class CookiesReader {
 			for (Cookie ck : wd.manage().getCookies()) {
 				BWrite.write((ck.getName() + ";" + ck.getValue() + ";" + ck.getDomain() + ";" + ck.getPath() + ";"
 						+ ck.getExpiry() + ";" + ck.isSecure()));
-				BWrite.newLine();
+				BWrite.newLine();	
 			}
 
 			BWrite.close();
